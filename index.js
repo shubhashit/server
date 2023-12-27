@@ -1,27 +1,17 @@
-const express = require('express');
+// Importing the http module
 const http = require('http');
-const socket = require('socket.io');
 
-const app = http.createServer((req , res)=>{
-    if (req.url === '/api' && req.method === 'GET') {
-        res.end(
-            JSON.stringify({
-                messege : "this is api"
-            })
-        )
-    }  else {
-        res.writeHead(404, { 'Content-Type': 'application/json' });
-        res.end(
-            JSON.stringify({
-                message: 'Route Not Found: Please use the api/products endpoint',
-            })
-        );
-    }
+// Creating a server that listens on port 3000
+const server = http.createServer((req, res) => {
+    // Set the response header
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
 
-
+    // Send the response body
+    res.end('Hello, World!\n');
 });
 
-
-app.listen(3000  , ()=>{
-    console.log('listen on port')
-})  
+// Start the server on port 3000
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}/`);
+});
