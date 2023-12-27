@@ -14,6 +14,6 @@ app.get('/api' , (req , res)=>{
         status : "400"
     })
 })
-app.listen(3000 , ()=>{
+app.listen(3000,'0.0.0.0' , ()=>{
     console.log('listen on port')
 })
