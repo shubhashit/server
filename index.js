@@ -3,7 +3,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const userRoutes = require('./Routes/userRoutes');
-const todoRoutes = require('./Routes/todoRoutes')
+const todoRoutes = require('./Routes/todoRoutes');
+const classesRoutes  = require('./Routes/classesRoutes');
 const app = express()
 const port = 8000
 
@@ -49,6 +50,7 @@ app.get('/', (req, res) => {
 
 app.use('/user' , userRoutes);
 app.use('/todo', todoRoutes);
+app.use('/attendence', classesRoutes);
 
 app.listen(port, async () => {
     try {
